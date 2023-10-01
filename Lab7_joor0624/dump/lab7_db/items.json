@@ -1,0 +1,12 @@
+{"_id":{"$oid":"5e4d87c53d9685e09ab5e1e9"},"name":"Book","stock":{"$numberDouble":"25.0"},"price":{"$numberDouble":"149.0"},"categories":["Enjoyment"]}
+{"_id":{"$oid":"5e4d87c53d9685e09ab5e1ea"},"name":"T-shirt with print","stock":{"$numberDouble":"100.0"},"price":{"$numberDouble":"179.0"},"categories":["Clothes","Art"]}
+{"_id":{"$oid":"5e4d87c53d9685e09ab5e1eb"},"name":"Frying pan","stock":{"$numberDouble":"70.0"},"price":{"$numberDouble":"350.0"},"categories":["Kitchen"]}
+{"_id":{"$oid":"5e4d87c53d9685e09ab5e1ec"},"name":"Coffee machine","stock":{"$numberDouble":"50.0"},"price":{"$numberDouble":"1000.0"},"categories":["Kitchen","Essentials"]}
+{"_id":{"$oid":"5e4d87c53d9685e09ab5e1ed"},"name":"Wallet","stock":{"$numberDouble":"75.0"},"price":{"$numberDouble":"99.0"},"categories":["Essentials"]}
+{"_id":{"$oid":"5e4d87c53d9685e09ab5e1ee"},"name":"Sweater","stock":{"$numberDouble":"150.0"},"price":{"$numberDouble":"249.0"},"categories":["Clothes"]}
+{"_id":{"$oid":"5e4d87c53d9685e09ab5e1ef"},"name":"Buddha statue","stock":{"$numberDouble":"100.0"},"price":{"$numberDouble":"149.0"},"categories":["Art"]}
+{"_id":{"$oid":"5e4d87c53d9685e09ab5e1f0"},"name":"Toothbrush","stock":{"$numberDouble":"55.0"},"price":{"$numberDouble":"39.0"},"categories":["Bathroom","Essentials"]}
+{"_id":{"$oid":"5e4d87c53d9685e09ab5e1f1"},"name":"Dvd","stock":{"$numberDouble":"150.0"},"price":{"$numberDouble":"99.0"},"categories":["Enjoyment"]}
+{"_id":{"$oid":"5e4d87c53d9685e09ab5e1f2"},"name":"Key ring","stock":{"$numberDouble":"25.0"},"price":{"$numberDouble":"49.0"},"categories":["Essentials"]}
+{"_id":{"$oid":"5e4d87c63d9685e09ab5e1f3"},"name":"Painting","stock":{"$numberDouble":"15.0"},"price":{"$numberDouble":"500.0"},"categories":["Art"]}
+{"_id":{"$oid":"5e4d881d3d9685e09ab5e1f4"},"name":"Towel","stock":{"$numberDouble":"10.0"},"price":{"$numberDouble":"79.0"},"categories":["Bathroom"]}

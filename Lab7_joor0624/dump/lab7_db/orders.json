@@ -1,0 +1,12 @@
+{"_id":{"$numberDouble":"1.0"},"status":"Delivered","created":"2020-01-05 14:28:41","itemNames":["Book","Frying pan"]}
+{"_id":{"$numberDouble":"2.0"},"status":"Delivered","created":"2020-01-08 11:54:23","itemNames":["T-shirt with print","Coffee machine"]}
+{"_id":{"$numberDouble":"3.0"},"status":"Delivered","created":"2020-01-10 12:31:43","itemNames":["Book","Coffee machine"]}
+{"_id":{"$numberDouble":"4.0"},"status":"Delivered","created":"2020-01-11 13:33:11","itemNames":["Wallet","Sweater"]}
+{"_id":{"$numberDouble":"5.0"},"status":"Delivered","created":"2020-01-15 21:28:21","itemNames":["Book","Sweater"]}
+{"_id":{"$numberDouble":"6.0"},"status":"Delivered","created":"2020-01-28 22:28:17","itemNames":["Sweater","T-shirt with print"]}
+{"_id":{"$numberDouble":"7.0"},"status":"Sent","created":"2020-01-31 11:54:17","itemNames":["Book","Key ring"]}
+{"_id":{"$numberDouble":"8.0"},"status":"Sent","created":"2020-01-31 18:28:17 ","itemNames":["Dvd","Frying pan"]}
+{"_id":{"$numberDouble":"9.0"},"status":"Processing","created":"2020-02-06 14:00:17","itemNames":["Toothbrush","Painting"]}
+{"_id":{"$numberDouble":"10.0"},"status":"Processing","created":"2020-02-06 13:37:37","itemNames":["Dvd","Painting"]}
+{"_id":{"$numberDouble":"11.0"},"status":"Open","created":"2020-02-07 18:12:15","itemNames":["Wallet","Toothbrush"]}
+{"_id":{"$numberDouble":"12.0"},"status":"Open","created":"2020-02-07 21:28:17","itemNames":["Sweater","Buddha statue"]}

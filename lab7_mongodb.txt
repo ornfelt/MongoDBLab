@@ -1,0 +1,147 @@
+	
+db.customers.insert({"_id": 1, "name": "Jonas", "email": "jonas@mail.com",
+"address": [{"city": "Visby", "street": "Lillgatan 1", "zip": 62111}], "orderID": [1, 2]})
+db.customers.insert({"_id": 2, "name": "Eric", "email": "eric@mail.com",
+"address": [{"city": "Visby", "street": "Lillgatan 2", "zip": 62112}], "orderID": [3, 4]})
+db.customers.insert({"_id": 3, "name": "Dan", "email": "dan@mail.com",
+"address": [{"city": "Stockholm", "street": "Storgatan 3", "zip": 62113}], "orderID": [5]})
+db.customers.insert({"_id": 4, "name": "Bella", "email": "bella@mail.com",
+"address": [{"city": "Gothenburg", "street": "Gogatan 4", "zip": 62114}], "orderID": [6, 7, 8]})
+db.customers.insert({"_id": 5, "name": "Oliver", "email": "oliver@mail.com",
+"address": [{"city": "Stockholm", "street": "Storgatan 5", "zip": 62115}], "orderID": [9, 10, 11]})
+db.customers.insert({"_id": 6, "name": "Sam", "email": "sam@mail.com",
+"address": [{"city": "Stockholm", "street": "Storgatan 6", "zip": 62116}], "orderID": [12]})
+
+
+db.items.insert({"name": "Book", "stock": 25, "price": 149, "categories": ["Enjoyment"]})
+db.items.insert({"name": "T-shirt with print", "stock": 100, "price": 179, "categories": ["Clothes", "Art"]})
+db.items.insert({"name": "Frying pan", "stock": 70, "price": 350, "categories": ["Kitchen"]})
+db.items.insert({"name": "Coffee machine", "stock": 50, "price": 1000, "categories": ["Kitchen", "Essentials"]})
+db.items.insert({"name": "Wallet", "stock": 75, "price": 99, "categories": ["Essentials"]})
+db.items.insert({"name": "Sweater", "stock": 150, "price": 249, "categories": ["Clothes"]})
+db.items.insert({"name": "Buddha statue", "stock": 100, "price": 149, "categories": ["Art"]})
+db.items.insert({"name": "Toothbrush", "stock": 55, "price": 39, "categories": ["Bathroom", "Essentials"]})
+db.items.insert({"name": "Dvd", "stock": 150, "price": 99, "categories": ["Enjoyment"]})
+db.items.insert({"name": "Key ring", "stock": 25, "price": 49, "categories": ["Essentials"]})
+db.items.insert({"name": "Painting", "stock": 15, "price": 500, "categories": ["Art"]})
+
+
+db.orders.insert({"_id": 1, "status": "Delivered", "created": '2020-01-05 14:28:41', "itemNames": ["Book", "Frying pan"]})
+db.orders.insert({"_id": 2, "status": "Delivered", "created": '2020-01-08 11:54:23', "itemNames": ["T-shirt with print", "Coffee machine"]})
+db.orders.insert({"_id": 3, "status": "Delivered", "created": '2020-01-10 12:31:43', "itemNames": ["Book", "Coffee machine"]})
+db.orders.insert({"_id": 4, "status": "Delivered", "created": '2020-01-11 13:33:11', "itemNames": ["Wallet", "Sweater"]})
+db.orders.insert({"_id": 5, "status": "Delivered", "created": '2020-01-15 21:28:21', "itemNames": ["Book", "Sweater"]})
+db.orders.insert({"_id": 6, "status": "Delivered", "created": '2020-01-28 22:28:17', "itemNames": ["Sweater", "T-shirt with print"]})
+db.orders.insert({"_id": 7, "status": "Sent", "created": '2020-01-31 11:54:17', "itemNames": ["Book", "Key ring"]})
+db.orders.insert({"_id": 8, "status": "Sent", "created": '2020-01-31 18:28:17 ', "itemNames": ["Dvd", "Frying pan"]})
+db.orders.insert({"_id": 9, "status": "Processing", "created": '2020-02-06 14:00:17', "itemNames": ["Toothbrush", "Painting"]})
+db.orders.insert({"_id": 10, "status": "Processing", "created": '2020-02-06 13:37:37', "itemNames": ["Dvd", "Painting"]})
+db.orders.insert({"_id": 11, "status": "Open", "created": '2020-02-07 18:12:15', "itemNames": ["Wallet", "Toothbrush"]})
+db.orders.insert({"_id": 12, "status": "Open", "created": '2020-02-07 21:28:17', "itemNames": ["Sweater", "Buddha statue"]})
+
+
+/* Visar alla orders med öppen status */
+db.orders.find({status: "Open"}).pretty()
+
+/*Visar alla items med specifik kategori */
+db.items.find({categories: "Art"}).pretty()
+
+/* Visar alla items med någon av kategorierna i arrayen */	
+db.items.find({categories: {$in: ["Essentials", "Bathroom"]}}).pretty()
+
+/* Visar alla items med lager över 50 */
+db.items.find({stock: {$gt: 50}}).pretty()
+
+/*Sorterar items baserat på pris (lägst först)*/
+db.items.aggregate([{$sort: {price: 1}}]).pretty()
+
+
+/*Sortera customers baserat på hur många orders de lagt. sortByCount hade varit lättare, men funkar inte pga array */
+db.customers.aggregate([
+	{$project: {
+		id: 1,
+		numbOfOrders: {$size: "$orderID"}
+		 }},
+	{$sort: { numbOfOrders: -1 }}
+ ]).pretty()
+
+
+
+/*Visa order med item från en specifik kategori */
+Svårt att göra sökning med orders innehållandes items från en specifik kategori
+db.items.aggregate([
+{$match: {categories: "Enjoyment"}},
+{$lookup: {
+	from: "orders",
+	localField: "itemNames",
+	foreignField: "name",
+	as:"order_customer"
+}}]).pretty()
+
+
+/*Visar kundinformation med join för orders för kund med specifikt id */
+db.customers.aggregate([
+	{$match: {_id: 1}},
+	{$lookup: {
+		from: "orders",
+		localField: "orderID",
+		foreignField: "_id",
+		as:"customer_order(s)"
+}}]).pretty()
+
+/*Visar kundinformation med join för orders för kunder från Visby eller Göteborg */
+db.customers.aggregate([
+	{$match: {"address.city": {$in: ["Visby", "Gothenburg"]}}},
+	{$lookup: {
+		from: "orders",
+		localField: "orderID",
+		foreignField: "_id",
+		as:"customer_order(s)"
+}}]).pretty()
+
+
+db.items.deleteOne({name: "Towel"})
+
+db.customers.updateOne({_id: 6}, {$set: {'address.0.city': "Karlstad" }})
+varför 0 ?
+
+db.customers.update({}, {$unset: {email:1}}, false, true)
+
+db.items.insertOne({"name": "Towel", "stock": 10, "price": 79, "categories": ["Bathroom"]})
+
+
+/*Visar items och orders dem är med i*/
+
+db.items.aggregate([
+    {
+      $lookup:
+        {
+          from: "orders",
+          localField: "name",
+          foreignField: "itemNames",
+          as: "matched_order"
+        }
+   },
+   {
+      $match: { "matched_order": { $ne: [] } }
+   }
+]).pretty()
+
+/*Visar items som inte har beställts. Den nya produkten Towel bör alltså dyka upp*/
+
+db.items.aggregate([
+    {
+      $lookup:
+        {
+          from: "orders",
+          localField: "name",
+          foreignField: "itemNames",
+          as: "matched_order"
+        }
+   },
+   {
+      $match: { "matched_order": { $eq: [] } }
+   }
+]).pretty()
+	
+

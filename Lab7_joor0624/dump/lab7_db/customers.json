@@ -1,0 +1,6 @@
+{"_id":{"$numberDouble":"1.0"},"name":"Jonas","email":"jonas@mail.com","address":[{"city":"Visby","street":"Lillgatan 1","zip":{"$numberDouble":"62111.0"}}],"orderID":[{"$numberDouble":"1.0"},{"$numberDouble":"2.0"}]}
+{"_id":{"$numberDouble":"2.0"},"name":"Eric","email":"eric@mail.com","address":[{"city":"Visby","street":"Lillgatan 2","zip":{"$numberDouble":"62112.0"}}],"orderID":[{"$numberDouble":"3.0"},{"$numberDouble":"4.0"}]}
+{"_id":{"$numberDouble":"3.0"},"name":"Dan","email":"dan@mail.com","address":[{"city":"Stockholm","street":"Storgatan 3","zip":{"$numberDouble":"62113.0"}}],"orderID":[{"$numberDouble":"5.0"}]}
+{"_id":{"$numberDouble":"4.0"},"name":"Bella","email":"bella@mail.com","address":[{"city":"Gothenburg","street":"Gogatan 4","zip":{"$numberDouble":"62114.0"}}],"orderID":[{"$numberDouble":"6.0"},{"$numberDouble":"7.0"},{"$numberDouble":"8.0"}]}
+{"_id":{"$numberDouble":"5.0"},"name":"Oliver","email":"oliver@mail.com","address":[{"city":"Stockholm","street":"Storgatan 5","zip":{"$numberDouble":"62115.0"}}],"orderID":[{"$numberDouble":"9.0"},{"$numberDouble":"10.0"},{"$numberDouble":"11.0"}]}
+{"_id":{"$numberDouble":"6.0"},"name":"Sam","email":"sam@mail.com","address":[{"city":"Karlstad","street":"Storgatan 6","zip":{"$numberDouble":"62116.0"}}],"orderID":[{"$numberDouble":"12.0"}]}

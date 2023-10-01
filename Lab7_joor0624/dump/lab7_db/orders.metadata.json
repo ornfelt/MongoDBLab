@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"lab7_db.orders"}],"uuid":"07add3e9e9cc4f6080cfef8683b88d0c"}
